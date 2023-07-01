@@ -7,7 +7,7 @@ To use it, simply download it on your computer :
 
  	On Linux, go in the terminal and type the following commands:
   		git clone https://github.com/VirisOnGithub/DocsSDL.git
-    		cd DocsSDL/
-      		firefox commandes_SDL.html
+    	cd DocsSDL/
+      	firefox commandes_SDL.html
 
   
