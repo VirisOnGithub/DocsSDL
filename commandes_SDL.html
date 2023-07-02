@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>Commandes SDL</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="commande">SDL_Init(SDL_INT_VIDEO)</div> 
+        <blockquote>retourne 0 si l'initialisation du module vidéo (et events) de SDL s'est bien déroulée
+            retourne une valeur négative sinon</blockquote>
+
+        <div class="bloccode">if (SDL_Init(SDL_INIT_VIDEO) < 0){ <br/>
+                <p>
+                    SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "[DEBUG] > %s", SDL_GetError()); <br/>
+                    return EXIT_FAILURE; <br/>
+                </p>
+            }
+        </div>
+
+        <blockquote>SDL_LogError catégorise l'erreur qui se produit en fonction de SDL_GetError</blockquote>
+
+        <div class="commande">SDL_Window* nomFenêtre{ nullptr }</div>
+        
+        <blockquote>crée l'objet qui contiendra la fenêtre</blockquote>
+
+        <div class="commande">SDL_Renderer* nomRenderer { nullptr }</div>
+
+        <blockquote>crée l'objet qui contiendra le moteur de rendu</blockquote>
+
+        <div class="commande">SDL_CreateWindowAndRenderer(x,y,flags,window,renderer)</div>
+
+        <blockquote>
+            crée la fenêtre avec le moteur de rendu en utilisant les objets associés <br/>  
+            x et y sont les dimensions de la fenêtre
+        </blockquote>
+
+        <div class="bloccode">
+            if (SDL_CreateWindowAndRenderer(800, 600, SDL_WINDOW_SHOWN, &pWindow, &pRenderer) < 0){ <br/>
+            <p>
+                SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "[DEBUG] > %s", SDL_GetError());        <br/>
+                SDL_Quit(); <br/>
+                return EXIT_FAILURE;<br/>
+            </p>
+            }
+        </div>
+
+        <blockquote>si on n'arrive pas à ouvrir la fenêtre, il ne faut pas oublier de quitter SDL (qu'on a initialisé tout à l'heure)</blockquote>
+
+        <div class="commande">SDL_SetWindowTitle(window,title)</div>
+
+        <blockquote>modifie le titre de la fenêtre choisie</blockquote>
+
+        <div class="commande">SDL_Event events;</div>
+
+        <blockquote>on initialise l'objet Event pour pouvoir interagir avec la fenêtre</blockquote>
+
+        <div class="bloccode">
+            bool isOpen{ true }; <br/>
+            while (isOpen) <br/>
+            { <br/>
+                <p>
+                    while (SDL_PollEvent(&events)) <br/>
+                    { <br/>
+                        <div style="padding-left: 40px;">
+                            switch (events.type) <br/>
+                            { <br/>
+                                <div style="padding-left: 60px;">
+                                    case SDL_QUIT: <br/>
+                                    isOpen = false; <br/>
+                                    break; <br/>
+                                </div>
+                            }<br/>
+                        </div>
+                    }
+                </p>
+            }
+        </div>
+
+        <blockquote>
+            SDL_PollEvent attend le prochain évènement, et renvoie 1 tant que ce n'est pas le cas <br/>
+            events.type gère l'input en question <br/>
+            SDL_QUIT est l'évènement déclenché par le clic sur la croix rouge <br/>
+            par exemple, SDL_MOUSEBUTTONDOWN est l'évènement déclenché par le clic
+        </blockquote>
+
+        
+
+        <div class="commande">SDL_DestroyRenderer(renderer)</div>
+        <div class="commande">SDL_DestroyWindow(window)</div>
+        <div class="commande">SDL_Quit()</div>
+
+        <blockquote>avant de finir l'éxécution, il ne faut pas oublier de détruire la fenêtre, le renderer et de quitter SDL</blockquote>
+
+        <div class="commande">SDL_Delay(tps)</div>
+
+        <blockquote>
+            permet de faire attendre le programme <br/>
+            tps est le temps en millisecondes que l'on veut faire attendre le programme
+        </blockquote>
+    </body>
+</html>
