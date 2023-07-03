@@ -30,3 +30,11 @@ details[open]{
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
     margin-bottom: 1rem;
 }
+.struct{
+    background-color: #f5f5f585;
+    border-radius: 0.25rem;
+    border: 5px solid rgba(0,255,0,0.75);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    margin-bottom: 1rem;
+    padding: 1rem;
+}

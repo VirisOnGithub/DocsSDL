@@ -43,17 +43,24 @@
         </details>
 
         <details>
-            <summary>
+            <summary class="struct">
                 SDL_Window* nomFenêtre{ nullptr }
             </summary>
             <blockquote>crée l'objet qui contiendra la fenêtre</blockquote>
         </details>
 
         <details>
-            <summary>
+            <summary class="struct">
                 SDL_Renderer* nomRenderer { nullptr }
             </summary>
             <blockquote>crée l'objet qui contiendra le moteur de rendu</blockquote>
+        </details>
+
+        <details>
+            <summary class="struct">
+                SDL_Texture* nomTexture { nullptr }
+            </summary>
+            <blockquote>crée l'objet qui contiendra la texture</blockquote>
         </details>
 
         <details>
@@ -215,7 +222,7 @@
             } SDL_Rect; <br/>
         </details>
 
-        <details class="commande">
+        <details>
             <summary>
                 SDL_RenderDrawRect(renderer,rect)
             </summary>
@@ -224,5 +231,17 @@
                 rect est un pointeur vers un SDL_Rect
             </blockquote>
         </details>
+
+        <details>
+            <summary>
+                SDL_CreateTextureFromSurface(renderer,surface)
+            </summary>
+            <blockquote>
+                permet de créer une texture à partir d'une surface <br/>
+                surface est un pointeur vers un SDL_Surface
+            </blockquote>
+        </details>
+
+
     </body>
 </html>
